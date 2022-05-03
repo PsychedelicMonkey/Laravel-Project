@@ -1,0 +1,21 @@
+.navbar {
+  @include set-background(#111);
+  padding: 22px 5%;
+  display: flex;
+  justify-content: space-between;
+  
+  .navbar-left,.navbar-right {
+    display: flex;
+    gap: 12px;
+  }
+
+  a {
+    color: #fff;
+    font-size: 20px;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
