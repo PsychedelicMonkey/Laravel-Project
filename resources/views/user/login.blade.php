@@ -27,6 +27,11 @@
   
           <button type="submit" class="btn btn-full">Log In</button>
         </form>
+
+        <div class="social-login">
+          <p>Log in with....</p>
+          <a href="/auth/google" class="social-link"><i class="fa-brands fa-google"></i></a>
+        </div>
       </div>
     </div>
   </section>
