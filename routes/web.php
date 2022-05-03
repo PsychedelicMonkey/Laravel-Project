@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\GoogleAuthController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -29,3 +30,8 @@ Route::post('/logout', [UserController::class, 'logout']);
 // Google authentication
 Route::get('/auth/google', [GoogleAuthController::class, 'redirect']);
 Route::get('/auth/google/callback', [GoogleAuthController::class, 'callback']);
+
+// Profile
+Route::post('/profile', [ProfileController::class, 'update'])->middleware('auth');
+Route::get('/profile/edit', [ProfileController::class, 'edit'])->middleware('auth');
+Route::get('/profile/{user}', [ProfileController::class, 'index']);

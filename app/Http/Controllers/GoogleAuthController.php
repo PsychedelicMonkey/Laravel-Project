@@ -26,6 +26,8 @@ class GoogleAuthController extends Controller
             'email' => $googleUser->email,
         ]);
 
+        $user->profile()->update(['social_avatar' => $googleUser->avatar]);
+
         auth()->login($user);
 
         return redirect('/');

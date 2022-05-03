@@ -18,7 +18,7 @@
 
       @auth
         <div class="navbar-right">
-          <a href="#">My Profile</a>
+          <a href="/profile/{{ auth()->user()->id }}">My Profile</a>
           
           <form action="/logout" method="post">
             @csrf
