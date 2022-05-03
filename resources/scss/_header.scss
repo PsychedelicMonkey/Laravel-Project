@@ -1,8 +1,10 @@
 .navbar {
   @include set-background(#111);
+  position: relative;
   padding: 22px 5%;
   display: flex;
   justify-content: space-between;
+  z-index: 200;
   
   .navbar-left,.navbar-right {
     display: flex;

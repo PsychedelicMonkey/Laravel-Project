@@ -16,13 +16,15 @@
       </div>
 
       @auth
-        <a href="#">My Profile</a>
-
-        <form action="/logout" method="post">
-          @csrf
-
-          <button type="submit">Log Out</button>
-        </form>
+        <div class="navbar-right">
+          <a href="#">My Profile</a>
+          
+          <form action="/logout" method="post">
+            @csrf
+  
+            <button type="submit">Log Out</button>
+          </form>
+        </div>
       @else
         <div class="navbar-right">
           <a href="/login">Log In</a>
