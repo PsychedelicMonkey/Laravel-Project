@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\GoogleAuthController;
+use App\Http\Controllers\PhotoController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -35,3 +36,8 @@ Route::get('/auth/google/callback', [GoogleAuthController::class, 'callback']);
 Route::post('/profile', [ProfileController::class, 'update'])->middleware('auth');
 Route::get('/profile/edit', [ProfileController::class, 'edit'])->middleware('auth');
 Route::get('/profile/{user}', [ProfileController::class, 'index']);
+
+// Photos
+Route::get('/photos', [PhotoController::class, 'index']);
+Route::post('/photos', [PhotoController::class, 'store'])->middleware('auth');
+Route::get('/photos/create', [PhotoController::class, 'create'])->middleware('auth');
