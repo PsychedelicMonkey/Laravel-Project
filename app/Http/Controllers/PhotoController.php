@@ -14,7 +14,7 @@ class PhotoController extends Controller
      */
     public function index()
     {
-        $photos = Photo::orderBy('created_at', 'desc')->get();
+        $photos = Photo::orderBy('created_at', 'desc')->paginate(20);
 
         return view('photo.index', ['photos' => $photos]);
     }

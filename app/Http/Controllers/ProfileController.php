@@ -11,7 +11,7 @@ class ProfileController extends Controller
     // View a user's profile
     public function index(User $user)
     {
-        $photos = $user->photos()->orderBy('created_at', 'desc')->get();
+        $photos = $user->photos()->orderBy('created_at', 'desc')->paginate(20);
 
         return view('profile.index', ['user' => $user, 'photos' => $photos]);
     }
