@@ -1,6 +1,8 @@
 import imagesLoaded from "imagesloaded";
 import Masonry from "masonry-layout";
 
+import lightbox from "./lightbox";
+
 const gallery = document.querySelector(".gallery");
 let msnry;
 
