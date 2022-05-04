@@ -43,6 +43,15 @@ main {
   &-full {
     width: 100%
   }
+
+  &-delete {
+    @include set-background(#ff0000);
+
+    &:hover {
+      color: #ff0000;
+      border-color: #ff0000
+    }
+  }
 }
 
 @import 'header';

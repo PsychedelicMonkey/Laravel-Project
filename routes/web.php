@@ -41,3 +41,6 @@ Route::get('/profile/{user}', [ProfileController::class, 'index']);
 Route::get('/photos', [PhotoController::class, 'index']);
 Route::post('/photos', [PhotoController::class, 'store'])->middleware('auth');
 Route::get('/photos/create', [PhotoController::class, 'create'])->middleware('auth');
+Route::put('/photos/{photo}', [PhotoController::class, 'update'])->middleware('auth');
+Route::delete('/photos/{photo}', [PhotoController::class, 'destroy'])->middleware('auth');
+Route::get('/photos/{photo}/edit', [PhotoController::class, 'edit'])->middleware('auth');

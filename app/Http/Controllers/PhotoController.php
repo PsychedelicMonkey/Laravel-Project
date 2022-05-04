@@ -59,7 +59,7 @@ class PhotoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Photo $photo)
     {
         //
     }
@@ -70,9 +70,13 @@ class PhotoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Request $request, Photo $photo)
     {
-        //
+        if ($request->user()->cannot('update', $photo)) {
+            abort(403);
+        }
+
+        return view('photo.edit', ['photo' => $photo]);
     }
 
     /**
@@ -82,9 +86,20 @@ class PhotoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Photo $photo)
     {
-        //
+        if ($request->user()->cannot('update', $photo)) {
+            abort(403);
+        }
+
+        $data = $request->validate([
+            'caption' => 'max:255',
+            'location' => 'max:125',
+        ]);
+
+        $photo->update($data);
+
+        return redirect('/photos');
     }
 
     /**
@@ -93,8 +108,14 @@ class PhotoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, Photo $photo)
     {
-        //
+        if ($request->user()->cannot('delete', $photo)) {
+            abort(403);
+        }
+
+        $photo->delete();
+
+        return redirect('/photos');
     }
 }
