@@ -1,5 +1,24 @@
+.gallery-wrap {
+  padding-left: 22px;
+}
+
+.gallery:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.gallery-sizer,
 .gallery-item {
+  width: calc(33.333% - 22px);
+}
+
+.gallery-item {
+  float: left;
+  margin-bottom: 22px;
+
   img {
     width: 100%;
+    display: block;
   }
 }
