@@ -20,4 +20,10 @@
       @endauth
     </div>
   </section>
+
+  <section class="container profile-photos">
+    <h1>Photos</h1>
+
+    <x-gallery :photos="$photos" />
+  </section>
 </x-layout>
